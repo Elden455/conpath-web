@@ -4,34 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConPath | 讯途咨询 - 全球领先的专家知识共享平台</title>
-    <meta name="description" content="ConPath (讯途咨询) 提供专业的专家访谈、行业调研及人才寻访服务，依托30万+专家数据库，助力全球商业决策。">
+    <meta name="description" content="ConPath (讯途咨询) 提供专业的专家访谈、行业调研及人才寻访服务，助力全球商业决策。">
+    <!-- 引入高性能 CSS 框架 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* 针对图片未加载时的占位色 */
+        .img-placeholder { background-color: #1a202c; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
     <!-- 导航栏 -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
             <div class="text-2xl font-black tracking-tighter text-slate-900">CONPATH<span class="text-blue-600">.</span></div>
             <div class="hidden md:flex space-x-8 font-semibold text-sm uppercase tracking-widest text-slate-600">
                 <a href="#home" class="hover:text-blue-600 transition">首页</a>
                 <a href="#services" class="hover:text-blue-600 transition">服务范围</a>
                 <a href="#data" class="hover:text-blue-600 transition">数据实力</a>
-                <a href="mailto:elden@conpath.com" class="text-blue-600 border-2 border-blue-600 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-white transition-all">立即联系</a>
+                <a href="mailto:elden@conpath.com" class="text-blue-600 border-2 border-blue-600 px-5 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition-all">立即联系</a>
             </div>
         </div>
     </nav>
 
-    <!-- 1. 英雄区 (Hero Section) -->
-    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" 
-             class="absolute inset-0 w-full h-full object-cover z-0" alt="Business background">
-        <div class="absolute inset-0 bg-slate-950/70 z-10"></div>
+    <!-- 1. 英雄区 (Hero Section) - 优化加载速度 -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden img-placeholder">
+        <!-- 压缩后的高清大图 (w=1200, q=60) -->
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=60&w=1200" 
+             class="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000" 
+             alt="Business background"
+             onload="this.style.opacity='1'" style="opacity:0">
+        
+        <div class="absolute inset-0 bg-slate-950/75 z-10"></div>
+        
         <div class="relative z-20 text-center px-8 mt-16">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
                 精准连接 <span class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">全球智慧</span>
@@ -44,95 +52,95 @@
                     探索核心服务
                 </a>
                 <a href="#data" class="w-full md:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md px-10 py-4 rounded-full font-bold border border-white/30 transition-all">
-                    查看数据看板
+                    数据看板
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 2. 核心服务区 (Core Services) -->
-    <section id="services" class="py-32 bg-white">
+    <!-- 2. 核心服务区 (Core Services) - 优化图片加载 -->
+    <section id="services" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-8">
-            <div class="text-center mb-20">
+            <div class="text-center mb-16">
                 <h2 class="text-sm font-bold text-blue-600 tracking-[0.3em] uppercase mb-4">Core Expertise</h2>
                 <h3 class="text-4xl font-bold text-slate-900">核心业务体系</h3>
                 <div class="w-12 h-1 bg-blue-600 mx-auto mt-6"></div>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- 专家访谈 -->
+            <div class="grid lg:grid-cols-3 gap-10">
+                <!-- 专家访谈 (w=800, q=60) -->
                 <div class="group">
-                    <div class="overflow-hidden rounded-3xl mb-8 shadow-2xl transition-all group-hover:shadow-blue-200">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" 
+                    <div class="overflow-hidden rounded-3xl mb-8 shadow-xl transition-all group-hover:shadow-blue-100 img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=60&w=800" 
                              class="w-full h-64 object-cover group-hover:scale-110 transition duration-700" alt="Expert Interview">
                     </div>
                     <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-600 transition">1-on-1 专家访谈</h4>
-                    <p class="text-slate-500 leading-relaxed">直连各行业资深高管、技术先锋及政策专家，通过深度对话获取具有实战价值的市场情报与底层逻辑。</p>
+                    <p class="text-slate-500 leading-relaxed">直连各行业资深高管、技术先锋及政策专家，通过深度对话获取具有实战价值的市场情报。</p>
                 </div>
 
-                <!-- 行业调研 -->
+                <!-- 行业调研 (w=800, q=60) -->
                 <div class="group">
-                    <div class="overflow-hidden rounded-3xl mb-8 shadow-2xl transition-all group-hover:shadow-blue-200">
-                        <img src="https://images.unsplash.com/photo-1551288049-bbda4865cda1?auto=format&fit=crop&q=80&w=800" 
+                    <div class="overflow-hidden rounded-3xl mb-8 shadow-xl transition-all group-hover:shadow-blue-100 img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbda4865cda1?auto=format&fit=crop&q=60&w=800" 
                              class="w-full h-64 object-cover group-hover:scale-110 transition duration-700" alt="Industry Research">
                     </div>
                     <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-600 transition">深度行业调研</h4>
-                    <p class="text-slate-500 leading-relaxed">结合定量问卷与定性分析，基于真实专家样本，为您还原产业链全景，洞察行业未来趋势。</p>
+                    <p class="text-slate-500 leading-relaxed">结合定量问卷与定性分析，基于真实专家样本，为您还原产业链全景，洞察行业趋势。</p>
                 </div>
 
-                <!-- 高端寻访 -->
+                <!-- 高端寻访 (w=800, q=60) -->
                 <div class="group">
-                    <div class="overflow-hidden rounded-3xl mb-8 shadow-2xl transition-all group-hover:shadow-blue-200">
-                        <img src="https://images.unsplash.com/photo-1521791136364-798a7bc0d262?auto=format&fit=crop&q=80&w=800" 
+                    <div class="overflow-hidden rounded-3xl mb-8 shadow-xl transition-all group-hover:shadow-blue-100 img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1521791136364-798a7bc0d262?auto=format&fit=crop&q=60&w=800" 
                              class="w-full h-64 object-cover group-hover:scale-110 transition duration-700" alt="Headhunting">
                     </div>
                     <h4 class="text-2xl font-bold mb-4 group-hover:text-blue-600 transition">高端人才寻访</h4>
-                    <p class="text-slate-500 leading-relaxed">依托海量库资源，精准匹配具有特定背景的长期顾问或核心管理岗位人才，助力团队组织升级。</p>
+                    <p class="text-slate-500 leading-relaxed">依托海量专家资源，精准匹配具有特定背景的长期顾问或核心管理岗位人才。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 3. 数据看板区 (Data Dashboard) -->
-    <section id="data" class="py-32 bg-slate-950 text-white relative overflow-hidden">
+    <section id="data" class="py-24 bg-slate-950 text-white relative overflow-hidden">
         <div class="absolute top-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
         <div class="max-w-7xl mx-auto px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
                         数据驱动的<br><span class="text-blue-500">精准决策引擎</span>
                     </h2>
                     <p class="text-slate-400 text-lg mb-10 leading-relaxed font-light">
-                        我们对 30 万+ 专家档案进行深度结构化处理，通过自研算法确保匹配的绝对精准与高效。
+                        我们对 300,000+ 专家档案进行深度结构化处理，通过自研算法确保匹配的绝对精准与高效。
                     </p>
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         <div class="flex items-center space-x-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                            <span class="bg-blue-600/20 text-blue-500 p-2 rounded-lg">🛡️</span>
+                            <span class="text-blue-500">🛡️</span>
                             <span class="text-slate-300 font-medium">严苛的合规审查与隐私保护体系</span>
                         </div>
                         <div class="flex items-center space-x-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                            <span class="bg-blue-600/20 text-blue-500 p-2 rounded-lg">🌍</span>
+                            <span class="text-blue-500">🌍</span>
                             <span class="text-slate-300 font-medium">覆盖全球主要金融枢纽与工业腹地</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="glass p-10 rounded-[2.5rem] border-white/10 hover:border-blue-500/50 transition duration-500">
-                        <div class="text-blue-500 text-4xl md:text-5xl font-black mb-3 counter" data-target="300000">0</div>
-                        <div class="text-slate-400 text-sm uppercase tracking-widest font-bold">专家人才库</div>
+                <div class="grid grid-cols-2 gap-4 md:gap-6">
+                    <div class="glass p-8 rounded-3xl border-white/10 hover:border-blue-500/50 transition">
+                        <div class="text-blue-500 text-3xl md:text-4xl font-black mb-2 counter" data-target="300000">0</div>
+                        <div class="text-slate-400 text-xs uppercase font-bold tracking-widest">专家储备</div>
                     </div>
-                    <div class="glass p-10 rounded-[2.5rem] border-white/10 hover:border-blue-500/50 transition duration-500">
-                        <div class="text-blue-500 text-4xl md:text-5xl font-black mb-3 counter" data-target="500">0</div>
-                        <div class="text-slate-400 text-sm uppercase tracking-widest font-bold">细分行业</div>
+                    <div class="glass p-8 rounded-3xl border-white/10 hover:border-blue-500/50 transition">
+                        <div class="text-blue-500 text-3xl md:text-4xl font-black mb-2 counter" data-target="500">0</div>
+                        <div class="text-slate-400 text-xs uppercase font-bold tracking-widest">细分行业</div>
                     </div>
-                    <div class="glass p-10 rounded-[2.5rem] border-white/10 hover:border-blue-500/50 transition duration-500">
-                        <div class="text-blue-500 text-4xl md:text-5xl font-black mb-3">24<span class="text-2xl">h</span></div>
-                        <div class="text-slate-400 text-sm uppercase tracking-widest font-bold">响应时效</div>
+                    <div class="glass p-8 rounded-3xl border-white/10 hover:border-blue-500/50 transition">
+                        <div class="text-blue-500 text-3xl md:text-4xl font-black mb-2">24h</div>
+                        <div class="text-slate-400 text-xs uppercase font-bold tracking-widest">响应时效</div>
                     </div>
-                    <div class="glass p-10 rounded-[2.5rem] border-white/10 hover:border-blue-500/50 transition duration-500">
-                        <div class="text-blue-500 text-4xl md:text-5xl font-black mb-3">99<span class="text-2xl">%</span></div>
-                        <div class="text-slate-400 text-sm uppercase tracking-widest font-bold">客户满意度</div>
+                    <div class="glass p-8 rounded-3xl border-white/10 hover:border-blue-500/50 transition">
+                        <div class="text-blue-500 text-3xl md:text-4xl font-black mb-2">99%</div>
+                        <div class="text-slate-400 text-xs uppercase font-bold tracking-widest">客户满意</div>
                     </div>
                 </div>
             </div>
@@ -140,24 +148,23 @@
     </section>
 
     <!-- 4. 页脚 (Footer) -->
-    <footer class="bg-white py-20 border-t border-slate-100 px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-            <div>
-                <div class="text-2xl font-black mb-4 text-slate-900">CONPATH<span class="text-blue-600">.</span></div>
-                <p class="text-slate-400 max-w-xs">Xuntu Consulting (讯途咨询) — 全球智慧的精准连接者。</p>
+    <footer class="bg-white py-16 border-t border-slate-100 px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-black mb-2 text-slate-900">CONPATH<span class="text-blue-600">.</span></div>
+                <p class="text-slate-400 text-sm">Xuntu Consulting (讯途咨询) — 全球智慧的精准连接者。</p>
             </div>
-            <div class="flex flex-col items-center md:items-end">
-                <div class="flex space-x-6 mb-4 font-bold text-slate-600">
-                    <a href="#" class="hover:text-blue-600">关于我们</a>
+            <div class="text-slate-400 text-sm text-center md:text-right">
+                <div class="flex space-x-6 mb-4 font-bold text-slate-600 justify-center md:justify-end">
                     <a href="mailto:elden@conpath.com" class="hover:text-blue-600">商务合作</a>
                     <a href="#" class="hover:text-blue-600">合规声明</a>
                 </div>
-                <p class="text-slate-400 text-sm">© 2026 ConPath. All Rights Reserved.</p>
+                <p>© 2026 ConPath. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- 动画脚本 -->
+    <!-- 脚本控制：优化数字增长逻辑 -->
     <script>
         const counters = document.querySelectorAll('.counter');
         const observer = new IntersectionObserver((entries) => {
@@ -166,10 +173,10 @@
                     const updateCount = () => {
                         const target = +counter.getAttribute('data-target');
                         const count = +counter.innerText.replace(/,/g, '');
-                        const inc = target / 100;
+                        const inc = Math.max(1, target / 80);
                         if (count < target) {
                             counter.innerText = Math.ceil(count + inc).toLocaleString();
-                            setTimeout(updateCount, 20);
+                            setTimeout(updateCount, 25);
                         } else {
                             counter.innerText = target.toLocaleString();
                         }
@@ -178,7 +185,7 @@
                 });
                 observer.disconnect();
             }
-        }, { threshold: 0.5 });
+        }, { threshold: 0.2 });
         observer.observe(document.querySelector('#data'));
     </script>
 </body>
