@@ -3,140 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConPath | 询途咨询 - 全球领先的专家知识共享平台</title>
+    <title>ConPath | 讯途咨询 - 全球领先的行业专家网络平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: radial-gradient(circle at 20% 30%, #1e293b 0%, #0f172a 100%); }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .card-gradient { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;900&display=swap');
+        body { font-family: 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        .border-accent { border-left: 4px solid #2563eb; }
+        .section-title { font-weight: 900; letter-spacing: -0.02em; }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-white text-slate-900 leading-relaxed">
 
-    <!-- 导航栏 -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
-        <div class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
-            <div class="text-2xl font-black tracking-tighter text-slate-900 italic">CONPATH<span class="text-blue-600">.</span></div>
-            <div class="hidden md:flex space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-500">
-                <a href="#home" class="hover:text-blue-600 transition">首页</a>
-                <a href="#services" class="hover:text-blue-600 transition">服务范围</a>
-                <a href="#data" class="hover:text-blue-600 transition">数据实力</a>
-                <a href="mailto:elden@conpath.com" class="text-blue-600 border-2 border-blue-600 px-5 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition-all">立即联系</a>
+    <!-- 极简导航 -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
+            <div class="text-2xl font-black tracking-tighter text-blue-700">CONPATH</div>
+            <div class="hidden md:flex space-x-10 font-medium text-[13px] uppercase tracking-widest text-slate-500">
+                <a href="#services" class="hover:text-blue-600 transition">服务体系</a>
+                <a href="#compliance" class="hover:text-blue-600 transition">合规与数据</a>
+                <a href="mailto:elden@conpath.com" class="text-white bg-slate-900 px-6 py-2 rounded-sm hover:bg-blue-600 transition-all">联系我们</a>
             </div>
         </div>
     </nav>
 
-    <!-- 1. 英雄区 (Hero Section) - 使用纯色渐变与抽象设计 -->
-    <section id="home" class="relative h-[85vh] flex items-center justify-center text-white overflow-hidden hero-gradient">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full blur-[100px]"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-indigo-600 rounded-full blur-[120px]"></div>
-        </div>
-        <div class="relative z-20 text-center px-8 mt-10">
-            <h1 class="text-5xl md:text-8xl font-black mb-6 tracking-tighter leading-tight">
-                精准连接 <span class="text-blue-500">全球智慧</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-                ConPath (讯途咨询) 为全球决策者提供深度行业洞察。<br>
-                依托 <span class="text-white font-bold underline decoration-blue-500">300,000+</span> 专家资源，让决策更有据可依。
-            </p>
-            <div class="flex justify-center">
-                <a href="#services" class="bg-blue-600 hover:bg-blue-700 px-12 py-4 rounded-full font-bold transition-all shadow-2xl shadow-blue-500/40 text-center text-lg">
-                    探索核心服务
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. 核心服务区 (Core Services) - 使用图标化展示 -->
-    <section id="services" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- 专家访谈 -->
-                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:shadow-2xl transition duration-500 group">
-                    <div class="w-16 h-16 card-gradient rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-lg">🎙️</div>
-                    <h4 class="text-2xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition">1-on-1 专家访谈</h4>
-                    <p class="text-slate-500 leading-relaxed">直连全球各行业资深高管、技术先锋及政策专家，通过深度对话获取具有实战价值的市场洞察。</p>
-                </div>
-
-                <!-- 行业调研 -->
-                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:shadow-2xl transition duration-500 group">
-                    <div class="w-16 h-16 card-gradient rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-lg">📊</div>
-                    <h4 class="text-2xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition">深度行业调研</h4>
-                    <p class="text-slate-500 leading-relaxed">结合定量问卷与定性分析，基于真实专家样本，为您还原产业链全景，洞察行业未来趋势。</p>
-                </div>
-
-                <!-- 人才寻访 -->
-                <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:shadow-2xl transition duration-500 group">
-                    <div class="w-16 h-16 card-gradient rounded-2xl mb-8 flex items-center justify-center text-3xl shadow-lg">🎯</div>
-                    <h4 class="text-2xl font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition">高端人才寻访</h4>
-                    <p class="text-slate-500 leading-relaxed">利用 30 万专家数据库，精准匹配具有特定背景的长期顾问或核心管理岗位人才。</p>
+    <!-- 1. 纯净英雄区 (Hero) - 借鉴凯盛的权威感 -->
+    <section id="home" class="pt-40 pb-20 px-6 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:w-2/3">
+                <h1 class="text-5xl md:text-7xl section-title text-slate-900 mb-8 leading-[1.1]">
+                    在变化中 <br><span class="text-blue-600">洞察确定性</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-500 mb-12 font-light leading-relaxed max-w-2xl">
+                    ConPath 为全球领先的金融机构、咨询公司及跨国企业提供精准的专家知识连接，将零散的行业经验转化为决策价值。
+                </p>
+                <div class="flex items-center space-x-6">
+                    <div class="h-[1px] w-12 bg-slate-300"></div>
+                    <span class="text-sm font-bold uppercase tracking-[0.3em] text-slate-400 text-xs">Knowledge Redefined</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. 数据看板区 (Data Dashboard) -->
-    <section id="data" class="py-24 bg-slate-950 text-white relative">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <!-- 2. 服务体系 (Services) - 借鉴凯盛的两列交互逻辑 -->
+    <section id="services" class="py-24 px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-20">
                 <div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
-                        数据驱动的<br><span class="text-blue-500 underline decoration-blue-500/30">精准决策引擎</span>
-                    </h2>
-                    <p class="text-slate-400 text-lg mb-8 font-light">
-                        我们对 300,000+ 专家档案进行深度结构化处理，通过自研系统确保匹配的高效与合规。
+                    <h2 class="text-xs font-bold text-blue-600 uppercase tracking-[0.4em] mb-4">What We Do</h2>
+                    <h3 class="text-4xl font-bold mb-8">我们的服务如何<br>赋能您的决策</h3>
+                    <p class="text-slate-500 mb-10 leading-relaxed">
+                        在信息过载的时代，最核心的洞察往往存在于行业专家的脑海中。我们构建了高效的转化路径，让这些深度经验能即时服务于您的研究任务。
                     </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                            <span class="text-blue-500 font-bold">✓</span>
-                            <span class="text-slate-300 font-medium">严苛的合规审查体系</span>
-                        </div>
-                        <div class="flex items-center space-x-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                            <span class="text-blue-500 font-bold">✓</span>
-                            <span class="text-slate-300 font-medium">覆盖 500+ 细分垂直领域</span>
-                        </div>
+                </div>
+                
+                <div class="space-y-12">
+                    <div class="border-accent pl-8">
+                        <h4 class="text-xl font-bold mb-3">1对1专家深度访谈</h4>
+                        <p class="text-slate-500 text-sm">通过电话或面谈，直接获取目标行业最前沿的商业实态与技术趋势。</p>
+                    </div>
+                    <div class="border-accent pl-8">
+                        <h4 class="text-xl font-bold mb-3">多维度行业调研 (Surveys)</h4>
+                        <p class="text-slate-500 text-sm">基于我们 300,000+ 的专家库，快速完成大规模样本收集与数据清洗。</p>
+                    </div>
+                    <div class="border-accent pl-8">
+                        <h4 class="text-xl font-bold mb-3">定制化寻访服务</h4>
+                        <p class="text-slate-500 text-sm">针对极细分的利基市场，我们提供专项猎聘与顾问长期派驻支持。</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="glass p-8 rounded-[2rem] text-center">
-                        <div class="text-blue-500 text-4xl font-black mb-2 counter" data-target="300000">0</div>
-                        <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">专家储备</div>
-                    </div>
-                    <div class="glass p-8 rounded-[2rem] text-center">
-                        <div class="text-blue-500 text-4xl font-black mb-2 counter" data-target="500">0</div>
-                        <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">细分行业</div>
-                    </div>
-                    <div class="glass p-8 rounded-[2rem] text-center">
-                        <div class="text-blue-500 text-4xl font-black mb-2">24h</div>
-                        <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">响应时效</div>
-                    </div>
-                    <div class="glass p-8 rounded-[2rem] text-center">
-                        <div class="text-blue-500 text-4xl font-black mb-2">99%</div>
-                        <div class="text-slate-500 text-xs uppercase tracking-widest font-bold">客户满意</div>
-                    </div>
-                </div>
+    <!-- 3. 合规与实力 (Compliance & Data) - 凯盛的核心竞争力 -->
+    <section id="compliance" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto text-center mb-20">
+            <h2 class="text-4xl font-bold mb-6">合规与数据安全</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto font-light">
+                ConPath 坚持最严苛的合规标准。我们的合规框架涵盖了利益冲突避免、保密协议履行及数据隐私保护，确保每一次咨询过程均符合全球主要金融市场的监管要求。
+            </p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center py-10 px-4 border border-white/10 rounded-sm hover:border-blue-500 transition-colors">
+                <div class="text-4xl font-black mb-4 counter" data-target="300000">0</div>
+                <div class="text-slate-500 text-xs font-bold uppercase tracking-widest">专家档案 (Profiles)</div>
+            </div>
+            <div class="text-center py-10 px-4 border border-white/10 rounded-sm hover:border-blue-500 transition-colors">
+                <div class="text-4xl font-black mb-4 counter" data-target="500">0</div>
+                <div class="text-slate-500 text-xs font-bold uppercase tracking-widest">覆盖细分行业</div>
+            </div>
+            <div class="text-center py-10 px-4 border border-white/10 rounded-sm hover:border-blue-500 transition-colors">
+                <div class="text-4xl font-black mb-4">2026</div>
+                <div class="text-slate-500 text-xs font-bold uppercase tracking-widest">合规基准年份</div>
+            </div>
+            <div class="text-center py-10 px-4 border border-white/10 rounded-sm hover:border-blue-500 transition-colors">
+                <div class="text-4xl font-black mb-4">ISO</div>
+                <div class="text-slate-500 text-xs font-bold uppercase tracking-widest">数据保护准则</div>
             </div>
         </div>
     </section>
 
     <!-- 4. 页脚 (Footer) -->
-    <footer class="bg-white py-16 border-t border-slate-100 text-center">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="text-2xl font-black mb-4 text-slate-900 tracking-tighter italic">CONPATH<span class="text-blue-600">.</span></div>
-            <p class="text-slate-400 text-sm mb-6">Xuntu Consulting (讯途咨询) — 全球智慧的精准连接者。</p>
-            <div class="flex justify-center space-x-6 text-sm font-bold text-slate-600">
-                <a href="mailto:elden@conpath.com" class="hover:text-blue-600 transition">商务合作</a>
-                <a href="#" class="hover:text-blue-600 transition">合规声明</a>
+    <footer class="py-20 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="mb-10 md:mb-0">
+                <div class="text-2xl font-black tracking-tighter text-blue-700 mb-4">CONPATH</div>
+                <p class="text-slate-400 text-sm">讯途咨询 (Xuntu) - 为复杂决策提供简单逻辑。</p>
             </div>
-            <p class="mt-8 text-slate-300 text-xs uppercase tracking-widest">© 2026 ConPath. All Rights Reserved.</p>
+            <div class="space-y-4">
+                <div class="flex space-x-8 text-sm font-bold">
+                    <a href="mailto:elden@conpath.com" class="hover:text-blue-600 transition">商务申请</a>
+                    <a href="#" class="hover:text-blue-600 transition">加入专家库</a>
+                    <a href="#" class="hover:text-blue-600 transition">隐私权条款</a>
+                </div>
+                <p class="text-slate-300 text-[10px] uppercase tracking-widest text-right">© 2026 ConPath. Globally Connected, Locally Informed.</p>
+            </div>
         </div>
     </footer>
 
     <script>
+        // 数字滚动动画
         const counters = document.querySelectorAll('.counter');
         const observer = new IntersectionObserver((entries) => {
             if(entries[0].isIntersecting) {
@@ -144,10 +132,10 @@
                     const updateCount = () => {
                         const target = +counter.getAttribute('data-target');
                         const count = +counter.innerText.replace(/,/g, '');
-                        const inc = Math.max(1, target / 100);
+                        const inc = Math.max(1, target / 80);
                         if (count < target) {
                             counter.innerText = Math.ceil(count + inc).toLocaleString();
-                            setTimeout(updateCount, 20);
+                            setTimeout(updateCount, 25);
                         } else {
                             counter.innerText = target.toLocaleString();
                         }
@@ -157,7 +145,7 @@
                 observer.disconnect();
             }
         }, { threshold: 0.5 });
-        observer.observe(document.querySelector('#data'));
+        observer.observe(document.querySelector('#compliance'));
     </script>
 </body>
 </html>
