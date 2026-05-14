@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conpath Insights | 询途咨询 - 精品专家网络</title>
     <style>
-        /* 基础样式：外资咨询简约风 */
         :root { --main-bg: #ffffff; --text-dark: #1a1a1a; --text-gray: #666666; --accent: #000000; }
         body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: var(--text-dark); line-height: 1.6; background: var(--main-bg); scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
@@ -14,14 +13,13 @@
         header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(255,255,255,0.98); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; }
         .nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         
-        /* 公司 Logo 容器优化 */
-        .logo-container { display: flex; align-items: center; height: 32px; } /* 根据截图比例调整高度 */
+        /* Logo 容器优化：确保高度协调 */
+        .logo-container { display: flex; align-items: center; height: 35px; } 
         .logo-img { height: 100%; width: auto; object-fit: contain; }
         
         nav a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-        nav a:hover { opacity: 0.7; }
 
-        /* Hero Section - 电影感大图 */
+        /* Hero Section */
         .hero { 
             height: 90vh; 
             background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); 
@@ -37,12 +35,11 @@
         .hero-content h1 strong { font-weight: 900; }
         .hero-content p { font-size: 20px; font-weight: 300; max-width: 800px; margin: 0 auto; opacity: 0.95; letter-spacing: 0.5px; }
 
-        /* 通用章节样式 */
+        /* 核心价值 */
         section { padding: 100px 0; }
         .section-title { font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 60px; position: relative; }
         .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: #000; margin: 20px auto 0; }
 
-        /* 核心价值 */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .value-card { padding: 45px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
         .value-card:hover { border-color: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -56,9 +53,8 @@
         .step-num { font-size: 48px; font-weight: 900; color: #f0f0f0; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 1; }
         .step-content { position: relative; z-index: 2; margin-top: 30px; }
         .step-content h4 { font-size: 18px; margin-bottom: 12px; font-weight: 800; }
-        .step-content p { font-size: 14px; color: var(--text-gray); }
 
-        /* 合规体系 - 黑色高级感模块 */
+        /* 合规体系 */
         .compliance-section { background: #111111; color: #fff; }
         .compliance-section .section-title::after { background: #fff; }
         .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -66,26 +62,25 @@
         .comp-list li { margin-bottom: 30px; padding-left: 35px; position: relative; }
         .comp-list li::before { content: '●'; position: absolute; left: 0; color: #fff; font-size: 12px; top: 5px; }
         .comp-list li strong { display: block; font-size: 18px; margin-bottom: 8px; font-weight: 700; }
-        .comp-list li span { font-size: 14px; color: #999; line-height: 1.6; }
+        .comp-list li span { font-size: 14px; color: #999; }
 
-        /* 行业领域分布 */
+        /* 行业领域 */
         .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .industry-item { height: 110px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #eee; font-weight: 700; font-size: 15px; transition: 0.3s; cursor: default; }
         .industry-item:hover { background: #000; color: #fff; border-color: #000; }
 
         /* 页脚 */
         footer { padding: 80px 0; background: #fff; border-top: 1px solid #eee; text-align: center; font-size: 13px; color: #999; }
-        .footer-logo { height: 28px; margin-bottom: 25px; opacity: 0.7; }
+        .footer-logo { height: 30px; margin-bottom: 25px; opacity: 0.7; }
         footer p { margin: 12px 0; }
-        footer a { color: #999; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
-        footer a:hover { border-bottom-color: #999; }
+        footer a { color: #999; text-decoration: none; }
 
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 32px; }
             .compliance-grid { grid-template-columns: 1fr; }
             .industry-grid { grid-template-columns: 1fr 1fr; }
             header { height: 70px; }
-            nav { display: none; } /* 移动端暂时隐藏导航以保持整洁 */
+            nav { display: none; }
         }
     </style>
 </head>
@@ -178,7 +173,7 @@
                         </li>
                         <li>
                             <strong>定制化合规审核路径</strong>
-                            <span>根据项目性质（如非上市公司限制）定制审核流程，确保所有参与人选均通过利益冲突筛查。</span>
+                            <span>根据项目性质定制审核流程，确保所有参与人选均通过利益冲突筛查。</span>
                         </li>
                         <li>
                             <strong>项目全周期风险管控</strong>
@@ -187,7 +182,7 @@
                     </ul>
                 </div>
                 <div style="text-align: right;">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" style="width: 100%; border-radius: 2px; opacity: 0.8;" alt="compliance info">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" style="width: 100%; border-radius: 2px; opacity: 0.8;" alt="compliance system">
                 </div>
             </div>
         </div>
@@ -211,7 +206,7 @@
         <div class="container">
             <img src="logo.png" alt="CONPATH" class="footer-logo">
             <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
-            <p><a href="https://beian.miit.gov.cn/">ICP备案号：[此处填写备案号]</a></p>
+            <p><a href="https://beian.miit.gov.cn/">ICP备案号：[请填写你的备案号]</a></p>
             <p>业务垂询：biz@conpath-insights.com</p>
         </div>
     </footer>
