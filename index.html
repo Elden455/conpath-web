@@ -1,207 +1,139 @@
-<template>
-  <div class="conpath-container">
-    <header class="header-nav">
-      <div class="nav-content">
-        <div class="logo">
-          <span class="brand">CONPATH</span>
-          <span class="divider">|</span>
-          <span class="slogan">询途咨询</span>
-        </div>
-        <nav class="menu">
-          <a href="#home">首页</a>
-          <a href="#services">核心优势</a>
-          <a href="#expertise">专家领域</a>
-          <a href="#about">关于我们</a>
-          <button class="btn-contact">立即咨询</button>
-        </nav>
-      </div>
-    </header>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conpath | 询途咨询 - 精品专家网络</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <style>
+        body { margin: 0; font-family: "PingFang SC", "Microsoft YaHei", sans-serif; color: #2c3e50; }
+        #app { padding-top: 70px; }
+        
+        /* 导航栏 */
+        .header-nav { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; height: 70px; display: flex; align-items: center; }
+        .nav-content { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 22px; font-weight: 800; color: #1a1a1a; }
+        .logo span { font-weight: normal; font-size: 14px; color: #666; margin-left: 8px; }
+        .menu a { text-decoration: none; color: #333; margin-left: 25px; font-weight: 500; font-size: 15px; }
+        .btn-contact { background: #1a1a1a; color: #fff; border: none; padding: 8px 18px; margin-left: 25px; cursor: pointer; border-radius: 4px; }
 
-    <section id="home" class="hero">
-      <div class="hero-mask"></div>
-      <div class="hero-content">
-        <h1 class="fade-in">精品专家网络 赋能深度决策</h1>
-        <p class="hero-subtitle">由前精品咨询专家创立，深谙咨询逻辑，为您精准匹配 300,000+ 行业领军人物。</p>
-        <div class="search-bar">
-          <input type="text" placeholder="输入行业关键词，例如：半导体设备、创新药、ESG..." v-model="searchVal">
-          <button @click="handleSearch">搜索预览</button>
-        </div>
-        <div class="hero-tags">
-          <span>快速响应</span>
-          <span class="dot">·</span>
-          <span>合伙人级品控</span>
-          <span class="dot">·</span>
-          <span>猎头基因寻访</span>
-        </div>
-      </div>
-    </section>
+        /* Hero 主视觉区 */
+        .hero { height: 70vh; background: #f8f9fa; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; border-bottom: 1px solid #eee; }
+        .hero-content { max-width: 900px; padding: 0 20px; }
+        .hero h1 { font-size: 42px; margin-bottom: 20px; color: #1a1a1a; letter-spacing: -1px; }
+        .hero-subtitle { font-size: 18px; color: #555; margin-bottom: 40px; line-height: 1.8; }
+        
+        .search-bar { display: flex; max-width: 600px; margin: 0 auto 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; }
+        .search-bar input { flex: 1; padding: 15px 20px; border: 1px solid #ddd; outline: none; font-size: 16px; border-right: none; }
+        .search-bar button { background: #1a1a1a; color: #fff; border: none; padding: 0 30px; cursor: pointer; font-weight: bold; }
 
-    <section id="services" class="section services">
-      <div class="container">
-        <h2 class="section-title">为什么选择 Conpath？</h2>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">⏱️</div>
-            <h3>极速响应交付</h3>
-            <p>2小时内反馈首批人选，24小时完成全名单寻访，完美适配咨询项目的高频节奏。</p>
-          </div>
-          <div class="card border-highlight">
-            <div class="icon">🔍</div>
-            <h3>合伙人级品控</h3>
-            <p>创始人 Elden (前 OC&C 资深顾问、高毅合伙人) 亲自把控，确保名单质量而非简单的“简历堆砌”。</p>
-          </div>
-          <div class="card">
-            <div class="icon">🧬</div>
-            <h3>深度寻访能力</h3>
-            <p>依托 30 万专家库+猎头式主动访寻，覆盖医药、硬科技、ESG 等 20+ 细分赛道。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        /* 核心优势 */
+        .section { padding: 80px 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { padding: 40px; border: 1px solid #eee; background: #fff; transition: 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card h3 { font-size: 20px; margin: 20px 0; }
+        .card p { color: #777; font-size: 14px; line-height: 1.6; }
+        .icon { font-size: 36px; }
 
-    <section id="expertise" class="section expertise">
-      <div class="container">
-        <h2 class="section-title">核心行业覆盖</h2>
-        <div class="industry-tags">
-          <div v-for="item in industries" :key="item" class="tag">{{ item }}</div>
-        </div>
-      </div>
-    </section>
+        /* 行业标签 */
+        .industry-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px; }
+        .tag { padding: 10px 24px; background: #f0f2f5; border-radius: 50px; font-size: 14px; color: #444; }
 
-    <section id="about" class="section about">
-      <div class="container">
-        <div class="about-flex">
-          <div class="about-text">
-            <h2>创始团队与基因</h2>
-            <p>Conpath 的灵魂在于“咨询人懂咨询”。我们不仅提供数据，更提供基于行业洞察的专家筛选建议。</p>
-            <ul class="experience-list">
-              <li><strong>6年+</strong> 精品咨询机构 (OC&C) 实战经验</li>
-              <li><strong>合伙人级</strong> 专家网络运营背景 (高毅咨询)</li>
-              <li>深谙外资咨询 (MBB, Tier 2) 与顶级金融机构的项目逻辑</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        /* 底部 */
+        .footer { background: #1a1a1a; color: #888; text-align: center; padding: 50px 0; font-size: 13px; }
+        .footer p { margin: 5px 0; }
+        .footer a { color: #555; text-decoration: none; }
 
-    <footer class="footer">
-      <div class="container">
-        <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
-        <p class="icp">ICP备案号：<a href="https://beian.miit.gov.cn/">请在此处填写你的备案号</a></p>
-      </div>
-    </footer>
-  </div>
-</template>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header class="header-nav">
+            <div class="nav-content">
+                <div class="logo">CONPATH <span>| 询途咨询</span></div>
+                <nav class="menu">
+                    <a href="#">首页</a>
+                    <a href="#services">优势</a>
+                    <a href="#expertise">领域</a>
+                    <button class="btn-contact">立即咨询</button>
+                </nav>
+            </div>
+        </header>
 
-<script setup>
-import { ref } from 'vue';
+        <section class="hero">
+            <div class="hero-content">
+                <h1>精品专家网络 赋能深度决策</h1>
+                <p class="hero-subtitle">由前精品咨询专家创立，深谙咨询逻辑。我们为您精准匹配 300,000+ 活跃于各行业的领军人物与资深专家。</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索关键词，如：半导体、ESG、商业尽调..." v-model="searchVal">
+                    <button @click="handleSearch">检索</button>
+                </div>
+            </div>
+        </section>
 
-const searchVal = ref('');
-const industries = [
-  '医药医疗', '半导体/硬科技', 'ESG/新能源', '大消费/零售', 
-  '工业制造', '金融保险', 'TMT/互联网', '汽车交通', '教育培训'
-];
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">为什么选择 Conpath？</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon">⏱️</div>
+                        <h3>极速响应交付</h3>
+                        <p>2小时内反馈首批人选，24小时内完成全名单寻访，完美适配咨询项目的高节奏需求。</p>
+                    </div>
+                    <div class="card" style="border: 2px solid #1a1a1a;">
+                        <div class="icon">🔍</div>
+                        <h3>合伙人级品控</h3>
+                        <p>创始人 Elden (前 OC&C 资深顾问、高毅合伙人) 亲自把控，确保名单质量而非简历搬运。</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon">🧬</div>
+                        <h3>深度寻访能力</h3>
+                        <p>依托猎头式主动访寻基因，深入 20+ 细分赛道，寻找那些不在数据库里的核心人物。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-const handleSearch = () => {
-  alert(`正在为您检索 ${searchVal.value} 相关的专家预览...`);
-};
-</script>
+        <section id="expertise" class="section" style="background: #fcfcfc;">
+            <div class="container">
+                <h2 class="section-title">核心行业覆盖</h2>
+                <div class="industry-tags">
+                    <div v-for="item in industries" :key="item" class="tag">{{ item }}</div>
+                </div>
+            </div>
+        </section>
 
-<style scoped>
-/* 全局基础样式 */
-.conpath-container {
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-  color: #2c3e50;
-  line-height: 1.6;
-}
+        <footer class="footer">
+            <div class="container">
+                <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
+                <p><a href="https://beian.miit.gov.cn/">ICP备案号：[此处填写备案号]</a></p>
+            </div>
+        </footer>
+    </div>
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 导航栏 */
-.header-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.brand { font-size: 24px; font-weight: 800; color: #1a1a1a; letter-spacing: 1px; }
-.divider { margin: 0 10px; color: #ccc; }
-.slogan { font-size: 16px; color: #666; }
-
-.menu a { text-decoration: none; color: #333; margin-left: 30px; font-weight: 500; }
-.btn-contact {
-  background: #1a1a1a;
-  color: #fff;
-  border: none;
-  padding: 8px 20px;
-  margin-left: 30px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* Hero Section */
-.hero {
-  height: 85vh;
-  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.hero-mask {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255, 255, 255, 0.85);
-}
-
-.hero-content { position: relative; z-index: 1; }
-.hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: #1a1a1a; }
-.hero-subtitle { font-size: 1.25rem; color: #444; max-width: 800px; margin: 0 auto 40px; }
-
-.search-bar { display: flex; max-width: 600px; margin: 0 auto 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.search-bar input { flex: 1; padding: 15px; border: none; outline: none; font-size: 16px; }
-.search-bar button { background: #1a1a1a; color: #fff; border: none; padding: 0 30px; cursor: pointer; }
-
-/* 核心优势卡片 */
-.section { padding: 80px 0; }
-.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-.card { padding: 40px; border: 1px solid #eee; transition: all 0.3s; background: #fff; }
-.card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-.border-highlight { border: 2px solid #1a1a1a; }
-.icon { font-size: 40px; margin-bottom: 20px; }
-
-/* 行业标签 */
-.industry-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-.tag { padding: 12px 30px; background: #f5f7f9; border-radius: 50px; font-weight: 500; color: #555; }
-
-/* 页脚 */
-.footer { background: #1a1a1a; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 0; }
-.icp a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; }
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 2rem; }
-  .menu { display: none; }
-}
-</style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/element-plus"></script>
+    <script>
+        const { createApp, ref } = Vue;
+        const app = createApp({
+            setup() {
+                const searchVal = ref('');
+                const industries = ['医药医疗', '半导体/硬科技', 'ESG/新能源', '大消费/零售', '工业制造', '金融保险', 'TMT', '汽车交通'];
+                const handleSearch = () => {
+                    alert('正在为您检索：' + searchVal.value + '\n预览版仅展示脱敏数据，完整报告请联系顾问。');
+                };
+                return { searchVal, industries, handleSearch };
+            }
+        });
+        app.use(ElementPlus);
+        app.mount('#app');
+    </script>
+</body>
+</html>
