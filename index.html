@@ -13,9 +13,13 @@
         /* 导航栏 */
         header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(255,255,255,0.98); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; }
         .nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; }
-        .logo span { font-weight: 300; font-size: 16px; margin-left: 10px; color: var(--text-gray); }
-        nav a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-size: 14px; font-weight: 500; text-transform: uppercase; }
+        
+        /* 公司 Logo 容器优化 */
+        .logo-container { display: flex; align-items: center; height: 32px; } /* 根据截图比例调整高度 */
+        .logo-img { height: 100%; width: auto; object-fit: contain; }
+        
+        nav a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        nav a:hover { opacity: 0.7; }
 
         /* Hero Section - 电影感大图 */
         .hero { 
@@ -54,7 +58,7 @@
         .step-content h4 { font-size: 18px; margin-bottom: 12px; font-weight: 800; }
         .step-content p { font-size: 14px; color: var(--text-gray); }
 
-        /* 合规体系 (PPT核心内容) */
+        /* 合规体系 - 黑色高级感模块 */
         .compliance-section { background: #111111; color: #fff; }
         .compliance-section .section-title::after { background: #fff; }
         .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
@@ -64,13 +68,14 @@
         .comp-list li strong { display: block; font-size: 18px; margin-bottom: 8px; font-weight: 700; }
         .comp-list li span { font-size: 14px; color: #999; line-height: 1.6; }
 
-        /* 行业领域 */
+        /* 行业领域分布 */
         .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .industry-item { height: 110px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #eee; font-weight: 700; font-size: 15px; transition: 0.3s; cursor: default; }
         .industry-item:hover { background: #000; color: #fff; border-color: #000; }
 
         /* 页脚 */
         footer { padding: 80px 0; background: #fff; border-top: 1px solid #eee; text-align: center; font-size: 13px; color: #999; }
+        .footer-logo { height: 28px; margin-bottom: 25px; opacity: 0.7; }
         footer p { margin: 12px 0; }
         footer a { color: #999; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
         footer a:hover { border-bottom-color: #999; }
@@ -79,8 +84,8 @@
             .hero-content h1 { font-size: 32px; }
             .compliance-grid { grid-template-columns: 1fr; }
             .industry-grid { grid-template-columns: 1fr 1fr; }
-            header { height: 60px; }
-            nav { display: none; }
+            header { height: 70px; }
+            nav { display: none; } /* 移动端暂时隐藏导航以保持整洁 */
         }
     </style>
 </head>
@@ -88,12 +93,14 @@
 
     <header>
         <div class="container nav-content">
-            <div class="logo">CONPATH<span>询途咨询</span></div>
+            <div class="logo-container">
+                <img src="logo.png" alt="CONPATH INSIGHTS" class="logo-img">
+            </div>
             <nav>
-                <a href="#about">优势</a>
-                <a href="#process">流程</a>
-                <a href="#compliance">合规</a>
-                <a href="#expertise">领域</a>
+                <a href="#about">竞争优势</a>
+                <a href="#process">寻访流程</a>
+                <a href="#compliance">合规体系</a>
+                <a href="#expertise">行业覆盖</a>
             </nav>
         </div>
     </header>
@@ -180,7 +187,7 @@
                     </ul>
                 </div>
                 <div style="text-align: right;">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" style="width: 100%; border-radius: 2px; opacity: 0.8;" alt="compliance system">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" style="width: 100%; border-radius: 2px; opacity: 0.8;" alt="compliance info">
                 </div>
             </div>
         </div>
@@ -202,8 +209,9 @@
 
     <footer>
         <div class="container">
+            <img src="logo.png" alt="CONPATH" class="footer-logo">
             <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
-            <p><a href="https://beian.miit.gov.cn/">ICP备案号：[请填写你的备案号]</a></p>
+            <p><a href="https://beian.miit.gov.cn/">ICP备案号：[此处填写备案号]</a></p>
             <p>业务垂询：biz@conpath-insights.com</p>
         </div>
     </footer>
