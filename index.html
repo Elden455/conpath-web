@@ -1,163 +1,207 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conpath | 询途咨询 - 全球领先的专家知识共享平台</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap');
-        body { font-family: 'Inter', 'Microsoft YaHei', sans-serif; scroll-behavior: smooth; }
-        .gradient-text { background: linear-gradient(135deg, #2563eb, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .bg-pattern { background-image: radial-gradient(#e2e8f0 1px, transparent 1px); background-size: 40px 40px; }
-        .card-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-        .card-shadow:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(37,99,235,0.15); }
-        [lang="en"] .lang-zh { display: none; }
-        [lang="zh"] .lang-en { display: none; }
-    </style>
-</head>
-<body class="bg-white text-slate-900" lang="zh">
-
-    <nav class="fixed w-full z-50 bg-white border-b border-slate-100">
-        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-            <div class="flex items-center">
-                <img src="Logo.png" alt="Conpath Logo" class="h-10 w-auto object-contain">
-            </div>
-            <div class="hidden md:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-500">
-                <a href="#services" class="hover:text-blue-600"><span class="lang-zh">服务</span><span class="lang-en">Services</span></a>
-                <a href="#industries" class="hover:text-blue-600"><span class="lang-zh">领域</span><span class="lang-en">Industries</span></a>
-                <a href="#process" class="hover:text-blue-600"><span class="lang-zh">流程</span><span class="lang-en">Process</span></a>
-                <button onclick="toggleLang()" class="border border-blue-600 text-blue-600 px-4 py-1.5 rounded-full hover:bg-blue-600 hover:text-white transition-all">
-                    <span class="lang-zh">English</span><span class="lang-en">中文版</span>
-                </button>
-                <a href="mailto:contact@conpath.cn" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-slate-900 transition-all">
-                    <span class="lang-zh">立即咨询</span><span class="lang-en">Contact Us</span>
-                </a>
-            </div>
+<template>
+  <div class="conpath-container">
+    <header class="header-nav">
+      <div class="nav-content">
+        <div class="logo">
+          <span class="brand">CONPATH</span>
+          <span class="divider">|</span>
+          <span class="slogan">询途咨询</span>
         </div>
-    </nav>
+        <nav class="menu">
+          <a href="#home">首页</a>
+          <a href="#services">核心优势</a>
+          <a href="#expertise">专家领域</a>
+          <a href="#about">关于我们</a>
+          <button class="btn-contact">立即咨询</button>
+        </nav>
+      </div>
+    </header>
 
-    <section class="relative min-h-[90vh] flex items-center bg-slate-950 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-pattern"></div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="md:w-3/4">
-                <h1 class="text-5xl md:text-8xl font-black text-white mb-8 leading-tight">
-                    <span class="lang-zh">连接全球 <span class="gradient-text">行业洞察</span></span>
-                    <span class="lang-en">Connecting <span class="gradient-text">Global Insights</span></span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-400 mb-12 font-light max-w-2xl leading-relaxed">
-                    <span class="lang-zh">询途咨询 (Conpath) 致力于通过 300,000+ 专家网络，为决策者提供最真实、深度的行业实战反馈。</span>
-                    <span class="lang-en">Conpath is dedicated to providing decision-makers with authentic and in-depth industry insights through our network of 300,000+ experts.</span>
-                </p>
-                <a href="#services" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-center hover:bg-blue-700 transition shadow-xl shadow-blue-500/20">
-                    <span class="lang-zh">探索解决方案</span><span class="lang-en">Our Solutions</span>
-                </a>
-            </div>
+    <section id="home" class="hero">
+      <div class="hero-mask"></div>
+      <div class="hero-content">
+        <h1 class="fade-in">精品专家网络 赋能深度决策</h1>
+        <p class="hero-subtitle">由前精品咨询专家创立，深谙咨询逻辑，为您精准匹配 300,000+ 行业领军人物。</p>
+        <div class="search-bar">
+          <input type="text" placeholder="输入行业关键词，例如：半导体设备、创新药、ESG..." v-model="searchVal">
+          <button @click="handleSearch">搜索预览</button>
         </div>
+        <div class="hero-tags">
+          <span>快速响应</span>
+          <span class="dot">·</span>
+          <span>合伙人级品控</span>
+          <span class="dot">·</span>
+          <span>猎头基因寻访</span>
+        </div>
+      </div>
     </section>
 
-    <section class="py-12 bg-blue-600 text-white text-center">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div><div class="text-4xl font-black mb-1">300,000+</div><div class="text-xs font-bold uppercase"><span class="lang-zh">专家档案</span><span class="lang-en">Expert Profiles</span></div></div>
-            <div><div class="text-4xl font-black mb-1">500+</div><div class="text-xs font-bold uppercase"><span class="lang-zh">细分行业</span><span class="lang-en">Industry Sectors</span></div></div>
-            <div><div class="text-4xl font-black mb-1">24H</div><div class="text-xs font-bold uppercase"><span class="lang-zh">响应时效</span><span class="lang-en">Response Time</span></div></div>
-            <div><div class="text-4xl font-black mb-1">10,000+</div><div class="text-xs font-bold uppercase"><span class="lang-zh">项目交付</span><span class="lang-en">Projects Delivered</span></div></div>
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 class="section-title">为什么选择 Conpath？</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">⏱️</div>
+            <h3>极速响应交付</h3>
+            <p>2小时内反馈首批人选，24小时完成全名单寻访，完美适配咨询项目的高频节奏。</p>
+          </div>
+          <div class="card border-highlight">
+            <div class="icon">🔍</div>
+            <h3>合伙人级品控</h3>
+            <p>创始人 Elden (前 OC&C 资深顾问、高毅合伙人) 亲自把控，确保名单质量而非简单的“简历堆砌”。</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧬</div>
+            <h3>深度寻访能力</h3>
+            <p>依托 30 万专家库+猎头式主动访寻，覆盖医药、硬科技、ESG 等 20+ 细分赛道。</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="services" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-4xl font-black mb-16"><span class="lang-zh">核心服务体系</span><span class="lang-en">Core Services</span></h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-10 rounded-3xl card-shadow border border-slate-100">
-                    <div class="text-3xl mb-6">🎙️</div>
-                    <h4 class="text-xl font-bold mb-4"><span class="lang-zh">专家访谈</span><span class="lang-en">Expert Interview</span></h4>
-                    <p class="text-slate-500 text-sm leading-relaxed"><span class="lang-zh">直连行业高管与决策者，获取深度洞见。</span><span class="lang-en">Directly engage with executives for deep insights.</span></p>
-                </div>
-                <div class="bg-white p-10 rounded-3xl card-shadow border border-slate-100">
-                    <div class="text-3xl mb-6">📊</div>
-                    <h4 class="text-xl font-bold mb-4"><span class="lang-zh">深度调研</span><span class="lang-en">Market Surveys</span></h4>
-                    <p class="text-slate-500 text-sm leading-relaxed"><span class="lang-zh">基于真实样本量化研究，还原产业链全景。</span><span class="lang-en">Quantitative research to restore industry landscape.</span></p>
-                </div>
-                <div class="bg-white p-10 rounded-3xl card-shadow border border-slate-100">
-                    <div class="text-3xl mb-6">🔍</div>
-                    <h4 class="text-xl font-bold mb-4"><span class="lang-zh">专项人才寻访</span><span class="lang-en">Executive Search</span></h4>
-                    <p class="text-slate-500 text-sm leading-relaxed"><span class="lang-zh">精准定位并引入细分领域的高端技术人才。</span><span class="lang-en">Locate and recruit high-end talent in niche sectors.</span></p>
-                </div>
-            </div>
+    <section id="expertise" class="section expertise">
+      <div class="container">
+        <h2 class="section-title">核心行业覆盖</h2>
+        <div class="industry-tags">
+          <div v-for="item in industries" :key="item" class="tag">{{ item }}</div>
         </div>
+      </div>
     </section>
 
-    <section id="industries" class="py-24">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-                <h3 class="text-4xl font-black mb-8 leading-tight"><span class="lang-zh">深度覆盖 <span class="text-blue-600">核心引擎</span></span><span class="lang-en">In-depth <span class="text-blue-600">Coverage</span></span></h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">💻 半导体/TMT</div>
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">🧬 医疗大健康</div>
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">🔋 新能源汽车</div>
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">🛍️ 消费/零售</div>
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">🏭 高端制造</div>
-                    <div class="p-4 bg-slate-50 rounded-xl font-bold text-sm">⚖️ 法律/合规</div>
-                </div>
-            </div>
-            <div class="bg-slate-900 rounded-[3rem] p-12 text-white shadow-2xl">
-                <h4 class="text-2xl font-bold mb-8"><span class="lang-zh">专家库分布</span><span class="lang-en">Network Structure</span></h4>
-                <div class="space-y-6">
-                    <div><div class="flex justify-between text-xs mb-2"><span>企业决策层 (VP+)</span><span>35%</span></div><div class="w-full bg-white/10 h-1.5 rounded-full"><div class="bg-blue-500 h-full w-[35%]"></div></div></div>
-                    <div><div class="flex justify-between text-xs mb-2"><span>核心技术人</span><span>40%</span></div><div class="w-full bg-white/10 h-1.5 rounded-full"><div class="bg-blue-500 h-full w-[40%]"></div></div></div>
-                </div>
-            </div>
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about-flex">
+          <div class="about-text">
+            <h2>创始团队与基因</h2>
+            <p>Conpath 的灵魂在于“咨询人懂咨询”。我们不仅提供数据，更提供基于行业洞察的专家筛选建议。</p>
+            <ul class="experience-list">
+              <li><strong>6年+</strong> 精品咨询机构 (OC&C) 实战经验</li>
+              <li><strong>合伙人级</strong> 专家网络运营背景 (高毅咨询)</li>
+              <li>深谙外资咨询 (MBB, Tier 2) 与顶级金融机构的项目逻辑</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="process" class="py-24 bg-slate-50 text-center">
-        <div class="max-w-7xl mx-auto px-6">
-            <h3 class="text-3xl font-black mb-16"><span class="lang-zh">合规与交付流程</span><span class="lang-en">Compliance & Process</span></h3>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div><div class="text-6xl font-black text-slate-200 mb-4">01</div><h5 class="font-bold"><span class="lang-zh">需求确认</span><span class="lang-en">Demand</span></h5></div>
-                <div><div class="text-6xl font-black text-slate-200 mb-4">02</div><h5 class="font-bold"><span class="lang-zh">精准匹配</span><span class="lang-en">Matching</span></h5></div>
-                <div><div class="text-6xl font-black text-slate-200 mb-4">03</div><h5 class="font-bold"><span class="lang-zh">合规风控</span><span class="lang-en">Compliance</span></h5></div>
-                <div><div class="text-6xl font-black text-slate-200 mb-4">04</div><h5 class="font-bold"><span class="lang-zh">访谈开启</span><span class="lang-en">Delivery</span></h5></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white">
-                <h3 class="text-3xl md:text-5xl font-black mb-12"><span class="lang-zh">开启您的研究</span><span class="lang-en">Start Your Research</span></h3>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6">
-                        <div><div class="text-blue-500 font-bold mb-2">EMAIL</div><div class="text-xl font-semibold">contact@conpath.cn</div></div>
-                        <div><div class="text-blue-500 font-bold mb-2">OFFICE</div><div class="text-slate-300 leading-relaxed">
-                            <span class="lang-zh text-lg">杭州市萧山区通文路2099号德必港立WE-A座3F</span>
-                            <span class="lang-en">3F, WE-A Block, GLI Port, No. 2099 Tongwen Road, Xiaoshan District, Hangzhou</span>
-                        </div></div>
-                    </div>
-                    <div class="flex items-end">
-                        <a href="mailto:contact@conpath.cn" class="w-full bg-blue-600 py-4 rounded-xl text-center font-bold hover:bg-white hover:text-blue-600 transition text-lg">
-                            <span class="lang-zh">发送业务邮件</span><span class="lang-en">Inquiry via Email</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-slate-100 text-center">
-        <div class="max-w-7xl mx-auto px-6 text-slate-400 text-xs">
-            <div class="font-black text-slate-900 text-lg mb-2">CONPATH 询途咨询</div>
-            <p>© 2026 Conpath. All Rights Reserved.</p>
-        </div>
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
+        <p class="icp">ICP备案号：<a href="https://beian.miit.gov.cn/">请在此处填写你的备案号</a></p>
+      </div>
     </footer>
+  </div>
+</template>
 
-    <script>
-        function toggleLang() {
-            const body = document.body;
-            const isZh = body.getAttribute('lang') === 'zh';
-            body.setAttribute('lang', isZh ? 'en' : 'zh');
-        }
-    </script>
-</body>
-</html>
+<script setup>
+import { ref } from 'vue';
+
+const searchVal = ref('');
+const industries = [
+  '医药医疗', '半导体/硬科技', 'ESG/新能源', '大消费/零售', 
+  '工业制造', '金融保险', 'TMT/互联网', '汽车交通', '教育培训'
+];
+
+const handleSearch = () => {
+  alert(`正在为您检索 ${searchVal.value} 相关的专家预览...`);
+};
+</script>
+
+<style scoped>
+/* 全局基础样式 */
+.conpath-container {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 导航栏 */
+.header-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.brand { font-size: 24px; font-weight: 800; color: #1a1a1a; letter-spacing: 1px; }
+.divider { margin: 0 10px; color: #ccc; }
+.slogan { font-size: 16px; color: #666; }
+
+.menu a { text-decoration: none; color: #333; margin-left: 30px; font-weight: 500; }
+.btn-contact {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  margin-left: 30px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+  height: 85vh;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: #1a1a1a; }
+.hero-subtitle { font-size: 1.25rem; color: #444; max-width: 800px; margin: 0 auto 40px; }
+
+.search-bar { display: flex; max-width: 600px; margin: 0 auto 30px; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.search-bar input { flex: 1; padding: 15px; border: none; outline: none; font-size: 16px; }
+.search-bar button { background: #1a1a1a; color: #fff; border: none; padding: 0 30px; cursor: pointer; }
+
+/* 核心优势卡片 */
+.section { padding: 80px 0; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.card { padding: 40px; border: 1px solid #eee; transition: all 0.3s; background: #fff; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+.border-highlight { border: 2px solid #1a1a1a; }
+.icon { font-size: 40px; margin-bottom: 20px; }
+
+/* 行业标签 */
+.industry-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+.tag { padding: 12px 30px; background: #f5f7f9; border-radius: 50px; font-weight: 500; color: #555; }
+
+/* 页脚 */
+.footer { background: #1a1a1a; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 0; }
+.icp a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px; }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+  .menu { display: none; }
+}
+</style>
