@@ -11,59 +11,76 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
         /* 导航栏 */
-        header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(255,255,255,0.95); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; }
+        header { position: fixed; top: 0; width: 100%; height: 80px; background: rgba(255,255,255,0.98); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; }
         .nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; }
         .logo span { font-weight: 300; font-size: 16px; margin-left: 10px; color: var(--text-gray); }
         nav a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-size: 14px; font-weight: 500; text-transform: uppercase; }
 
         /* Hero Section - 电影感大图 */
-        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; }
-        .hero-content h1 { font-size: 56px; font-weight: 900; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero-content p { font-size: 20px; font-weight: 300; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: #fff; 
+        }
+        .hero-content h1 { font-size: 52px; font-weight: 400; margin-bottom: 25px; letter-spacing: 1px; }
+        .hero-content h1 strong { font-weight: 900; }
+        .hero-content p { font-size: 20px; font-weight: 300; max-width: 800px; margin: 0 auto; opacity: 0.95; letter-spacing: 0.5px; }
 
         /* 通用章节样式 */
         section { padding: 100px 0; }
         .section-title { font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 60px; position: relative; }
         .section-title::after { content: ''; display: block; width: 40px; height: 3px; background: #000; margin: 20px auto 0; }
 
-        /* 核心价值（PPT第5页逻辑） */
+        /* 核心价值 */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .value-card { padding: 40px; border: 1px solid #eee; text-align: center; }
-        .value-card h3 { font-size: 20px; margin-bottom: 15px; }
-        .value-card p { font-size: 15px; color: var(--text-gray); }
+        .value-card { padding: 45px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .value-card:hover { border-color: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .value-card h3 { font-size: 20px; margin-bottom: 18px; font-weight: 800; }
+        .value-card p { font-size: 15px; color: var(--text-gray); line-height: 1.8; }
 
-        /* 服务流程（PPT第13-14页逻辑） */
-        .process-bg { background: #f9f9f9; }
+        /* 服务流程 */
+        .process-bg { background: #fcfcfc; }
         .process-flow { display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .step { flex: 1; min-width: 200px; padding: 20px; text-align: center; position: relative; }
-        .step-num { font-size: 48px; font-weight: 900; color: #eee; position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 1; }
-        .step-content { position: relative; z-index: 2; margin-top: 40px; }
-        .step-content h4 { font-size: 18px; margin-bottom: 10px; }
+        .step { flex: 1; min-width: 220px; padding: 20px; text-align: center; position: relative; }
+        .step-num { font-size: 48px; font-weight: 900; color: #f0f0f0; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 1; }
+        .step-content { position: relative; z-index: 2; margin-top: 30px; }
+        .step-content h4 { font-size: 18px; margin-bottom: 12px; font-weight: 800; }
+        .step-content p { font-size: 14px; color: var(--text-gray); }
 
-        /* 合规体系（PPT第16-17页逻辑 - 新加） */
-        .compliance-section { background: #1a1a1a; color: #fff; }
+        /* 合规体系 (PPT核心内容) */
+        .compliance-section { background: #111111; color: #fff; }
         .compliance-section .section-title::after { background: #fff; }
         .compliance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .comp-list { list-style: none; padding: 0; }
-        .comp-list li { margin-bottom: 25px; padding-left: 30px; position: relative; }
-        .comp-list li::before { content: '✓'; position: absolute; left: 0; color: #fff; font-weight: bold; }
-        .comp-list li strong { display: block; font-size: 18px; margin-bottom: 5px; }
-        .comp-list li span { font-size: 14px; color: #aaa; }
+        .comp-list li { margin-bottom: 30px; padding-left: 35px; position: relative; }
+        .comp-list li::before { content: '●'; position: absolute; left: 0; color: #fff; font-size: 12px; top: 5px; }
+        .comp-list li strong { display: block; font-size: 18px; margin-bottom: 8px; font-weight: 700; }
+        .comp-list li span { font-size: 14px; color: #999; line-height: 1.6; }
 
         /* 行业领域 */
-        .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .industry-item { height: 120px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #eee; font-weight: bold; font-size: 16px; transition: 0.3s; }
+        .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .industry-item { height: 110px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #eee; font-weight: 700; font-size: 15px; transition: 0.3s; cursor: default; }
         .industry-item:hover { background: #000; color: #fff; border-color: #000; }
 
         /* 页脚 */
-        footer { padding: 60px 0; background: #fff; border-top: 1px solid #eee; text-align: center; font-size: 13px; color: #999; }
-        footer p { margin: 10px 0; }
+        footer { padding: 80px 0; background: #fff; border-top: 1px solid #eee; text-align: center; font-size: 13px; color: #999; }
+        footer p { margin: 12px 0; }
+        footer a { color: #999; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
+        footer a:hover { border-bottom-color: #999; }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 36px; }
+            .hero-content h1 { font-size: 32px; }
             .compliance-grid { grid-template-columns: 1fr; }
             .industry-grid { grid-template-columns: 1fr 1fr; }
+            header { height: 60px; }
+            nav { display: none; }
         }
     </style>
 </head>
@@ -83,8 +100,8 @@
 
     <section class="hero">
         <div class="hero-content">
-<h1><strong>CONPATH</strong> BOUTIQUE EXPERT NETWORK</h1>
-            <p>融合外资咨询品控标准与深度寻访基因，为全球顶尖决策者提供精准行业洞察。</p>
+            <h1><strong>CONPATH</strong> BOUTIQUE EXPERT NETWORK</h1>
+            <p>融合精品咨询品控标准与深度寻访基因，为全球顶尖决策者提供精准行业洞察。</p>
         </div>
     </section>
 
@@ -93,15 +110,15 @@
         <div class="grid-3">
             <div class="value-card">
                 <h3>精品咨询基因</h3>
-                <p>核心团队来自一线精品咨询机构，深谙商业尽调逻辑，确保专家匹配的“颗粒度”与项目需求高度对齐。</p>
+                <p>团队成员来自前线精品咨询机构，深谙 CDD、TDD 等项目逻辑，确保专家匹配的“颗粒度”与研究目的高度对齐。</p>
             </div>
             <div class="value-card" style="border: 2px solid #000;">
-                <h3>猎头式寻访</h3>
-                <p>不依赖陈旧数据库。针对每个项目启动主动访寻，寻找那些活跃在行业一线且极少参与外部调研的核心人选。</p>
+                <h3>猎头式主动寻访</h3>
+                <p>拒绝依赖陈旧数据库。针对每个项目启动定制化访寻，触达那些活跃在行业一线且极少参与外部调研的核心人选。</p>
             </div>
             <div class="value-card">
                 <h3>极速交付标准</h3>
-                <p>2小时内首批反馈，24小时完成全案交付。我们理解咨询项目的时间压力，并始终保持同步。</p>
+                <p>2小时内首批反馈，24小时完成全案交付。我们理解咨询项目的时间压力，并始终保持同频响应。</p>
             </div>
         </div>
     </section>
@@ -114,28 +131,28 @@
                     <div class="step-num">01</div>
                     <div class="step-content">
                         <h4>需求洞察</h4>
-                        <p>深度解析项目背景与目标</p>
+                        <p>精准解析项目背景与访谈目标</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">02</div>
                     <div class="step-content">
-                        <h4>主动寻访</h4>
-                        <p>多维渠道触达行业关键人</p>
+                        <h4>深度寻访</h4>
+                        <p>多渠道定向触达行业关键人物</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">03</div>
                     <div class="step-content">
-                        <h4>合规审核</h4>
-                        <p>多级专家背景与风险筛查</p>
+                        <h4>合规筛查</h4>
+                        <p>多级专家身份背景与风险核实</p>
                     </div>
                 </div>
                 <div class="step">
                     <div class="step-num">04</div>
                     <div class="step-content">
-                        <h4>精准交付</h4>
-                        <p>提供结构化专家背景报告</p>
+                        <h4>结构化交付</h4>
+                        <p>提供详尽的专家履历与推荐建议</p>
                     </div>
                 </div>
             </div>
@@ -144,33 +161,33 @@
 
     <section id="compliance" class="compliance-section">
         <div class="container">
-            <h2 class="section-title">严苛的合规与培训体系</h2>
+            <h2 class="section-title">严苛的合规体系</h2>
             <div class="compliance-grid">
                 <div>
                     <ul class="comp-list">
                         <li>
-                            <strong>专家准入培训</strong>
-                            <span>针对内幕交易、重大非公开信息(MNPI)及反贿赂法进行强制性事前培训。</span>
+                            <strong>专家准入培训体系</strong>
+                            <span>强制性的事前培训，涵盖内幕交易、重大非公开信息 (MNPI) 及国际反贿赂法指南。</span>
                         </li>
                         <li>
-                            <strong>客制化合规审核</strong>
-                            <span>根据客户需求定制审核流程，包括专家身份限制及背景核实。</span>
+                            <strong>定制化合规审核路径</strong>
+                            <span>根据项目性质（如非上市公司限制）定制审核流程，确保所有参与人选均通过利益冲突筛查。</span>
                         </li>
                         <li>
-                            <strong>项目全程监督</strong>
-                            <span>风险专员全程评审，确保所有访谈符合合规要求与法律指引。</span>
+                            <strong>项目全周期风险管控</strong>
+                            <span>专职合规团队对所有项目进行事前评审与过程监督，保障咨询过程的合法性与合规性。</span>
                         </li>
                     </ul>
                 </div>
                 <div style="text-align: right;">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" style="width: 100%; opacity: 0.8;" alt="compliance">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" style="width: 100%; border-radius: 2px; opacity: 0.8;" alt="compliance system">
                 </div>
             </div>
         </div>
     </section>
 
     <section id="expertise" class="container">
-        <h2 class="section-title">全行业覆盖预览</h2>
+        <h2 class="section-title">行业覆盖全景</h2>
         <div class="industry-grid">
             <div class="industry-item">医药医疗</div>
             <div class="industry-item">半导体/硬科技</div>
@@ -187,7 +204,7 @@
         <div class="container">
             <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
             <p><a href="https://beian.miit.gov.cn/">ICP备案号：[请填写你的备案号]</a></p>
-            <p>联系我们：biz@conpath-insights.com</p>
+            <p>业务垂询：biz@conpath-insights.com</p>
         </div>
     </footer>
 
