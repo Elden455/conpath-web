@@ -13,7 +13,7 @@
         header { position: fixed; top: 0; width: 100%; height: 90px; background: rgba(255,255,255,0.98); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Logo 容器：确保清晰、不缩放 */
+        /* Logo 容器 */
         .logo-container { display: flex; align-items: center; height: 50px; } 
         .logo-img { height: 100%; width: auto; object-fit: contain; }
         
@@ -38,8 +38,10 @@
         .card:hover { border-color: var(--blue); transform: translateY(-5px); }
 
         .compliance { background: #111; color: #fff; }
+        
+        /* 行业领域网格：保持大气整齐的专业排版 */
         .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; background: #fff; color: #1a1a1a; transition: 0.3s; }
+        .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; font-size: 14px; padding: 0 10px; text-align: center; background: #fff; color: #1a1a1a; transition: 0.3s; }
         .industry-item:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; background: #fff; }
@@ -61,7 +63,6 @@
     <header>
         <div class="container nav-content">
             <div class="logo-container">
-                <!-- 保持你仓库里已验证成功的图片文件名 -->
                 <img src="image_b0a49b.png" alt="CONPATH INSIGHTS" class="logo-img">
             </div>
             <nav>
@@ -111,18 +112,18 @@
         </div>
     </section>
 
-    <!-- 核心行业赛道（已更新：加入汽车、AI） -->
+    <!-- 核心行业赛道（已深度优化语境） -->
     <section id="expertise" class="container">
         <h2 class="section-title">核心行业赛道</h2>
         <div class="industry-grid">
-            <div class="industry-item">汽车</div> <!-- 替换了 医药医疗 -->
-            <div class="industry-item">AI</div> <!-- 替换了 金融服务 -->
-            <div class="industry-item">半导体/硬科技</div>
-            <div class="industry-item">ESG/新能源</div>
-            <div class="industry-item">大消费/零售</div>
-            <div class="industry-item">工业制造</div>
-            <div class="industry-item">TMT/互联网</div>
-            <div class="industry-item">智能出行</div>
+            <div class="industry-item">智能汽车及汽车供应链</div>
+            <div class="industry-item">人工智能与大数据</div>
+            <div class="industry-item">半导体与硬科技</div>
+            <div class="industry-item">ESG与新能源</div>
+            <div class="industry-item">大消费与零售商业</div>
+            <div class="industry-item">高端与工业制造</div>
+            <div class="industry-item">TMT与前沿互联网</div>
+            <div class="industry-item">智能出行与泛交通</div>
         </div>
     </section>
 
