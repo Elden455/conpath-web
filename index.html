@@ -39,14 +39,19 @@
 
         .compliance { background: #111; color: #fff; }
         
-        /* 行业领域网格：保持大气整齐的专业排版 */
+        /* 行业领域网格 */
         .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
         .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; font-size: 14px; padding: 0 10px; text-align: center; background: #fff; color: #1a1a1a; transition: 0.3s; }
         .industry-item:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
+        /* 页脚与备案号样式 */
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; background: #fff; }
         .footer-logo { height: 40px; margin-bottom: 25px; opacity: 0.9; }
-        footer p { color: #888; font-size: 14px; }
+        footer p { color: #888; font-size: 14px; margin: 8px 0; }
+        
+        /* 备案号链接特调样式：浅灰色、无下划线，鼠标悬停时变蓝 */
+        .icp-link { color: #888; text-decoration: none; transition: 0.3s; font-size: 13px; }
+        .icp-link:hover { color: var(--blue); }
 
         @media (max-width: 768px) {
             header { height: 70px; }
@@ -112,7 +117,7 @@
         </div>
     </section>
 
-    <!-- 核心行业赛道（已深度优化语境） -->
+    <!-- 核心行业赛道 -->
     <section id="expertise" class="container">
         <h2 class="section-title">核心行业赛道</h2>
         <div class="industry-grid">
@@ -127,10 +132,18 @@
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- 页脚：包含工信部合规解析链接 -->
     <footer>
         <img src="image_b0a49b.png" alt="CONPATH" class="footer-logo">
         <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
+        
+        <!-- ICP 备案号展示区域（工信部硬性规定必须链接到 beian.miit.gov.cn） -->
+        <p>
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="icp-link">
+                [此处替换为您的真实备案号，例如：沪ICP备2026xxxx号-1]
+            </a>
+        </p>
+        
         <p>业务垂询: biz@conpath-insights.com</p>
     </footer>
 
