@@ -44,14 +44,40 @@
         .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; font-size: 14px; padding: 0 10px; text-align: center; background: #fff; color: #1a1a1a; transition: 0.3s; }
         .industry-item:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
-        /* 页脚与备案号样式 */
+        /* 页脚与双备案样式 */
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; background: #fff; }
         .footer-logo { height: 40px; margin-bottom: 25px; opacity: 0.9; }
         footer p { color: #888; font-size: 14px; margin: 8px 0; }
         
-        /* 备案号链接特调样式：浅灰色、无下划线，鼠标悬停时变蓝 */
+        /* 备案布局容器：并排居中 */
+        .beian-container { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 25px; margin: 15px 0; }
         .icp-link { color: #888; text-decoration: none; transition: 0.3s; font-size: 13px; }
         .icp-link:hover { color: var(--blue); }
+        
+        /* 针对你复制过来的公安备案A标签进行特别的高阶视觉优化 */
+        .beian-container a[href*="beian.mps.gov.cn"] {
+            color: #888 !important;
+            text-decoration: none !important;
+            font-size: 13px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            transition: 0.3s;
+        }
+        .beian-container a[href*="beian.mps.gov.cn"]:hover {
+            color: var(--blue) !important;
+        }
+        /* 利用Base64注入标准的盾牌警徽图标，无需额外上传图片文件 */
+        .beian-container a[href*="beian.mps.gov.cn"]::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAs0lEQVQ4T62S0Q3CMAxE38wAjMAI7MAIjMARGIEVGAEbgREYgRGYgAnYAV6S6tS9pInS96mXpPnYOfvMOfvS8eP8SgAsgS1wAt7AE9gDo8wZgAnYAnvGrgA6YAtshEAF9sCmsS8An7EAtgYmYAtshUAFbIG9EMgZgAnYAnshkDNoK+VbC79VwK99Sg9fXAn+A/gK4KvepWpXw8S+qgBe9S69v/I7f3XvUu9vWv0m9n8AnmSOfgGlYmshVzg9cwAAAABJRU5ErkJggg==');
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
 
         @media (max-width: 768px) {
             header { height: 70px; }
@@ -59,12 +85,12 @@
             .hero-content h1 { font-size: 28px; }
             nav { display: none; }
             .industry-grid { grid-template-columns: 1fr 1fr; }
+            .beian-container { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部导航栏 -->
     <header>
         <div class="container nav-content">
             <div class="logo-container">
@@ -78,7 +104,6 @@
         </div>
     </header>
 
-    <!-- Hero 核心视觉区 -->
     <section class="hero">
         <div class="hero-content">
             <h1>CONPATH BOUTIQUE EXPERT NETWORK</h1>
@@ -86,7 +111,6 @@
         </div>
     </section>
 
-    <!-- 竞争优势 -->
     <section id="about" class="container">
         <h2 class="section-title">核心竞争优势</h2>
         <div class="grid-3">
@@ -105,7 +129,6 @@
         </div>
     </section>
 
-    <!-- 严苛合规体系 -->
     <section id="compliance" class="compliance">
         <div class="container">
             <h2 class="section-title">严苛的合规体系</h2>
@@ -117,7 +140,6 @@
         </div>
     </section>
 
-    <!-- 核心行业赛道 -->
     <section id="expertise" class="container">
         <h2 class="section-title">核心行业赛道</h2>
         <div class="industry-grid">
@@ -132,17 +154,17 @@
         </div>
     </section>
 
-    <!-- 页脚：包含工信部合规解析链接 -->
     <footer>
         <img src="image_b0a49b.png" alt="CONPATH" class="footer-logo">
         <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
         
-        <!-- ICP 备案号展示区域（工信部硬性规定必须链接到 beian.miit.gov.cn） -->
-        <p>
+        <div class="beian-container">
             <a href="https://beian.miit.gov.cn/" target="_blank" class="icp-link">
-                [此处替换为您的真实备案号，例如：沪ICP备2026xxxx号-1]
+                [此处填写你的工信部ICP备案号，如：浙ICP备2026xxxx号-1]
             </a>
-        </p>
+            
+            <a href="https://beian.mps.gov.cn/#/query/webSearch?code=33010902004758" rel="noreferrer" target="_blank">浙公网安备33010902004758号</a>
+        </div>
         
         <p>业务垂询: biz@conpath-insights.com</p>
     </footer>
