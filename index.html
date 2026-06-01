@@ -54,7 +54,7 @@
         .icp-link { color: #888; text-decoration: none; transition: 0.3s; font-size: 13px; }
         .icp-link:hover { color: var(--blue); }
         
-        /* 针对你复制过来的公安备案A标签进行特别的高阶视觉优化 */
+        /* 针对公安备案A标签进行特别的视觉优化 */
         .beian-container a[href*="beian.mps.gov.cn"] {
             color: #888 !important;
             text-decoration: none !important;
@@ -66,7 +66,7 @@
         .beian-container a[href*="beian.mps.gov.cn"]:hover {
             color: var(--blue) !important;
         }
-        /* 利用Base64注入标准的盾牌警徽图标，无需额外上传图片文件 */
+        /* 利用Base64自动生成警徽图标，无需上传新文件 */
         .beian-container a[href*="beian.mps.gov.cn"]::before {
             content: '';
             display: inline-block;
@@ -91,6 +91,7 @@
 </head>
 <body>
 
+    <!-- 顶部导航栏 -->
     <header>
         <div class="container nav-content">
             <div class="logo-container">
@@ -104,6 +105,7 @@
         </div>
     </header>
 
+    <!-- Hero 核心视觉区 -->
     <section class="hero">
         <div class="hero-content">
             <h1>CONPATH BOUTIQUE EXPERT NETWORK</h1>
@@ -111,6 +113,7 @@
         </div>
     </section>
 
+    <!-- 竞争优势 -->
     <section id="about" class="container">
         <h2 class="section-title">核心竞争优势</h2>
         <div class="grid-3">
@@ -129,6 +132,7 @@
         </div>
     </section>
 
+    <!-- 严苛合规体系 -->
     <section id="compliance" class="compliance">
         <div class="container">
             <h2 class="section-title">严苛的合规体系</h2>
@@ -140,6 +144,7 @@
         </div>
     </section>
 
+    <!-- 核心行业赛道 -->
     <section id="expertise" class="container">
         <h2 class="section-title">核心行业赛道</h2>
         <div class="industry-grid">
@@ -154,17 +159,21 @@
         </div>
     </section>
 
+    <!-- 页脚：合规双备案整合完毕 -->
     <footer>
         <img src="image_b0a49b.png" alt="CONPATH" class="footer-logo">
         <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
         
+        <!-- 双备案网格容器 -->
         <div class="beian-container">
-            <a href="https://beian.miit.gov.cn/" target="_blank" class="icp-link">
-                [浙公网安备33010902004758号]
-          
+            <!-- 1. 工信部 ICP 备案链接（已为您填入真实备案号） -->
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="icp-link">浙ICP备2026035712号-1</a>
+            
+            <!-- 2. 全国公安联网备案原版代码 -->
+            <a href="https://beian.mps.gov.cn/#/query/webSearch?code=33010902004758" rel="noreferrer" target="_blank">浙公网安备33010902004758号</a>
         </div>
         
-        <p>业务垂询: biz@conpath-insights.com</p>
+        <p>业务垂询: contact@conpath-insights.com</p>
     </footer>
 
 </body>
