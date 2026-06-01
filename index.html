@@ -9,12 +9,12 @@
         body { margin: 0; font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif; color: var(--text-dark); line-height: 1.6; background: var(--main-bg); scroll-behavior: smooth; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
-        /* 导航栏高度增加到 90px 以容纳更大的 Logo */
+        /* 导航栏高度：完美容纳 50px 的大 Logo */
         header { position: fixed; top: 0; width: 100%; height: 90px; background: rgba(255,255,255,0.98); display: flex; align-items: center; z-index: 1000; border-bottom: 1px solid #f0f0f0; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-content { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Logo 尺寸大幅调优 */
-        .logo-container { display: flex; align-items: center; height: 50px; } /* 从 35px 调大到 50px */
+        /* Logo 容器：确保清晰、不缩放 */
+        .logo-container { display: flex; align-items: center; height: 50px; } 
         .logo-img { height: 100%; width: auto; object-fit: contain; }
         
         nav a { text-decoration: none; color: var(--text-dark); margin-left: 30px; font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -22,7 +22,7 @@
 
         /* Hero Section */
         .hero { 
-            margin-top: 90px; /* 避开导航栏高度 */
+            margin-top: 90px; 
             height: 75vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000'); 
             background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; 
@@ -39,11 +39,10 @@
 
         .compliance { background: #111; color: #fff; }
         .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-        .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; background: #fff; color: #1a1a1a; }
+        .industry-item { height: 100px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; font-weight: 700; background: #fff; color: #1a1a1a; transition: 0.3s; }
         .industry-item:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
 
         footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; background: #fff; }
-        /* 页脚 Logo 同步调大 */
         .footer-logo { height: 40px; margin-bottom: 25px; opacity: 0.9; }
         footer p { color: #888; font-size: 14px; }
 
@@ -52,14 +51,17 @@
             .logo-container { height: 35px; }
             .hero-content h1 { font-size: 28px; }
             nav { display: none; }
+            .industry-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- 顶部导航栏 -->
     <header>
         <div class="container nav-content">
             <div class="logo-container">
+                <!-- 保持你仓库里已验证成功的图片文件名 -->
                 <img src="image_b0a49b.png" alt="CONPATH INSIGHTS" class="logo-img">
             </div>
             <nav>
@@ -70,6 +72,7 @@
         </div>
     </header>
 
+    <!-- Hero 核心视觉区 -->
     <section class="hero">
         <div class="hero-content">
             <h1>CONPATH BOUTIQUE EXPERT NETWORK</h1>
@@ -77,6 +80,7 @@
         </div>
     </section>
 
+    <!-- 竞争优势 -->
     <section id="about" class="container">
         <h2 class="section-title">核心竞争优势</h2>
         <div class="grid-3">
@@ -95,6 +99,7 @@
         </div>
     </section>
 
+    <!-- 严苛合规体系 -->
     <section id="compliance" class="compliance">
         <div class="container">
             <h2 class="section-title">严苛的合规体系</h2>
@@ -106,20 +111,22 @@
         </div>
     </section>
 
+    <!-- 核心行业赛道（已更新：加入汽车、AI） -->
     <section id="expertise" class="container">
         <h2 class="section-title">核心行业赛道</h2>
         <div class="industry-grid">
-            <div class="industry-item">医药医疗</div>
+            <div class="industry-item">汽车</div> <!-- 替换了 医药医疗 -->
+            <div class="industry-item">AI</div> <!-- 替换了 金融服务 -->
             <div class="industry-item">半导体/硬科技</div>
             <div class="industry-item">ESG/新能源</div>
             <div class="industry-item">大消费/零售</div>
-            <div class="industry-item">金融服务</div>
             <div class="industry-item">工业制造</div>
             <div class="industry-item">TMT/互联网</div>
-            <div class="industry-item">汽车/智能出行</div>
+            <div class="industry-item">智能出行</div>
         </div>
     </section>
 
+    <!-- 页脚 -->
     <footer>
         <img src="image_b0a49b.png" alt="CONPATH" class="footer-logo">
         <p>© 2026 Conpath Insights. 询途咨询 版权所有</p>
